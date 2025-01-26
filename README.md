@@ -28,7 +28,9 @@ This Terraform module provides a way to provision a VM on a Proxmox server using
 
 ## Usage
 
-Code sample to create a VM on a Proxmox server:
+As the **module** contains the `bpg/proxmox` provider and the code to create the VM, it is not necessary to create a `provider` block in the `main.tf` file. It only requires to call the module and provide the necessary variables.
+
+To create a VM on a Proxmox server through this module, create a directory for the **Terraform** project and create a `main.tf` file with the following content:
 
 ```hcl
 module "proxmox" {
@@ -75,7 +77,11 @@ EOF
 }
 ```
 
-Commands to deploy the VM:
+**Note :** Replace the placeholders with your own values.
+
+**Note 2 :** The `vm_cloud_config` variable is a cloud-init configuration that will be used to configure the VM (more informations in **cloud-init** [documentation](https://cloudinit.readthedocs.io/en/latest/)).
+
+To deploy the VM, run the following commands:
 
 ```bash
 terraform init
