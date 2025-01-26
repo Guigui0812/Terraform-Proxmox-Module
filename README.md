@@ -32,9 +32,9 @@ Code sample to create a VM on a Proxmox server:
 
 ```hcl
 module "proxmox" {
-    source = "github.com/guillaumegarcia/sloth//terraform/proxmox"
+    source = "https://github.com/Guigui0812/Terraform-Proxmox-Module.git"
 
-    proxmox_endpoint = "https://<PROXMOX_IP>:8006/api2/json"
+    proxmox_endpoint = "https://<PROXMOX_IP>:8006"
     proxmox_username = "root@pam"
     proxmox_password = <PASSWORD>
 
