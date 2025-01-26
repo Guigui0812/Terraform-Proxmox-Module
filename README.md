@@ -5,8 +5,9 @@ This Terraform module provides a way to provision a VM on a Proxmox server using
 ## Requirements
 
 - [Terraform](https://www.terraform.io/downloads.html)
-- [Proxmox](https://www.proxmox.com/en/downloads) installed on a server
+- [Proxmox](https://www.proxmox.com/en/downloads) server with **snippets** enabled (**Datacenter** > **Storage** > **Edit** > **Content** > **Snippets**)
 - [Proxmox provider](https://registry.terraform.io/providers/bpg/proxmox/latest/docs)
+- A Cloud Image ISO file to deploy the VM with an OS of your choice, like [Ubuntu](https://cloud-images.ubuntu.com/)
 
 ## Variables
 
