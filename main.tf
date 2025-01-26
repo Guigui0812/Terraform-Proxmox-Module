@@ -40,7 +40,7 @@ resource "proxmox_virtual_environment_vm" "test-vm-ubuntu-24-04" {
 
   disk {
     datastore_id = "local-lvm"
-    file_id      = "local:iso/{$var.vm_iso_file}"
+    file_id      = "local:iso/${vm_iso_file}"
     interface    = "virtio0"
     iothread     = "true"
     discard      = "on"
