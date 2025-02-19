@@ -75,3 +75,23 @@ variable "vm_cloud_config" {
   type        = string
   description = "Cloud-init configuration for the VM"
 }
+
+variable "vm_admin_username" {
+  type        = string
+  description = "Admin username for the VM"
+}
+
+variable "vm_admin_password" {
+  type        = string
+  description = "Admin password for the VM"
+}
+
+variable "vm_root_password" {
+  type        = string
+  description = "Root password for the VM"
+}
+
+variable "vm_admin_ssh_public_key" {
+  type        = string
+  description = "Admin SSH public key for the VM"
+}

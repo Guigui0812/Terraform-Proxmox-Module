@@ -4,10 +4,32 @@ resource "proxmox_virtual_environment_file" "cloud-config-file" {
   node_name    = var.proxmox_node_name
 
   source_raw {
-    data = <<-EOT
+    data = <<-EOF
 #cloud-config
 hostname: ${var.vm_name}
-EOT
+users:
+  - default
+  - name: ${var.vm_admin_username}
+    groups: 
+      - sudo
+    shell: /bin/bash
+    sudo: ALL=(ALL) NOPASSWD:ALL
+%{ if var.vm_admin_ssh_public_key != "" }
+    ssh_authorized_keys:
+      - ${var.vm_admin_ssh_public_key}
+%{ endif }
+chpasswd:
+  list: |
+    ${var.vm_admin_username}:${var.vm_admin_password}
+    root:${var.vm_root_password}
+  expire: False
+ssh_pwauth: True
+runcmd:
+  - apt update
+  - apt install -y python3 python3-pip net-tools qemu-guest-agent
+  - systemctl enable qemu-guest-agent
+  - systemctl start qemu-guest-agent
+EOF
 
     file_name = "${var.vm_name}-cloud-config.yaml"
   }
