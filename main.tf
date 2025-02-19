@@ -5,7 +5,7 @@ resource "proxmox_virtual_environment_file" "cloud-config-file" {
 
   source_raw {
     data = var.vm_cloud_config
-    
+
     file_name = "${var.vm_name}-cloud-config.yaml"
   }
 }
