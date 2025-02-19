@@ -17,6 +17,11 @@ variable "proxmox_password" {
   description = "Proxmox password"
 }
 
+variable "proxmox_node_name" {
+  type = string
+  description = "Proxmox node name"
+}
+
 ####################
 # Module variables #
 ####################

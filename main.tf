@@ -1,16 +1,16 @@
-resource "proxmox_virtual_environment_file" "test-vm-ubuntu-24-04-cloud-config" {
+resource "proxmox_virtual_environment_file" "cloud-config-file" {
   content_type = "snippets"
   datastore_id = "local"
-  node_name    = "proxmox"
+  node_name    = var.proxmox_node_name
 
   source_raw {
     data = var.vm_cloud_config
     
-    file_name = "test-vm-ubuntu-24-04-cloud-config.yaml"
+    file_name = "${var.vm_name}-cloud-config.yaml"
   }
 }
 
-resource "proxmox_virtual_environment_vm" "test-vm-ubuntu-24-04" {
+resource "proxmox_virtual_environment_vm" "vm" {
   name      = var.vm_name
   node_name = "proxmox"
 
@@ -35,7 +35,7 @@ resource "proxmox_virtual_environment_vm" "test-vm-ubuntu-24-04" {
       }
     }
 
-    user_data_file_id = proxmox_virtual_environment_file.test-vm-ubuntu-24-04-cloud-config.id
+    user_data_file_id = proxmox_virtual_environment_file.cloud-config-file.id
   }
 
   disk {
