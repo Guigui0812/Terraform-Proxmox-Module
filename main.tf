@@ -50,4 +50,6 @@ resource "proxmox_virtual_environment_vm" "vm" {
   network_device {
     bridge = "vmbr0"
   }
+
+  depends_on = [ proxmox_virtual_environment_file.cloud-config-file ]
 }
