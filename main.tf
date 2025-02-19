@@ -4,7 +4,10 @@ resource "proxmox_virtual_environment_file" "cloud-config-file" {
   node_name    = var.proxmox_node_name
 
   source_raw {
-    data = var.vm_cloud_config
+    data = <<-EOT
+#cloud-config
+hostname: ${var.vm_name}
+EOT
 
     file_name = "${var.vm_name}-cloud-config.yaml"
   }
