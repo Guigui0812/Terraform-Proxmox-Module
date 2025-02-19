@@ -12,7 +12,7 @@ resource "proxmox_virtual_environment_file" "cloud-config-file" {
 
 resource "proxmox_virtual_environment_vm" "vm" {
   name      = var.vm_name
-  node_name = "proxmox"
+  node_name = var.proxmox_node_name
 
   cpu {
     cores = var.vm_nb_cpu_cores
