@@ -23,10 +23,6 @@ resource "proxmox_virtual_environment_vm" "vm" {
   }
 
   initialization {
-    user_account {
-      username = var.vm_username
-      password = var.vm_password
-    }
 
     ip_config {
       ipv4 {
