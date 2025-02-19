@@ -14,6 +14,10 @@ resource "proxmox_virtual_environment_vm" "vm" {
   name      = var.vm_name
   node_name = var.proxmox_node_name
 
+  agent {
+    enabled = true
+  }
+
   cpu {
     cores = var.vm_nb_cpu_cores
   }
