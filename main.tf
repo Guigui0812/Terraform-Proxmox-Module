@@ -60,8 +60,6 @@ resource "proxmox_virtual_environment_vm" "vm" {
       }
     }
 
-    interface = "scsi1"
-
     user_data_file_id = proxmox_virtual_environment_file.cloud-config-file.id
   }
 
@@ -74,7 +72,9 @@ resource "proxmox_virtual_environment_vm" "vm" {
     size         = var.vm_disk_size
   }
 
-   
+  serial_device {
+    device = "socket"
+  } 
 
   network_device {
     bridge = "vmbr0"
