@@ -2,21 +2,6 @@
 # Proxmox provider variables #
 ##############################
 
-variable "proxmox_endpoint" {
-  type        = string
-  description = "Proxmox API endpoint"
-}
-
-variable "proxmox_username" {
-  type        = string
-  description = "Proxmox username"
-}
-
-variable "proxmox_password" {
-  type        = string
-  description = "Proxmox password"
-}
-
 variable "proxmox_node_name" {
   type        = string
   description = "Proxmox node name"
