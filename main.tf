@@ -46,6 +46,11 @@ resource "proxmox_virtual_environment_vm" "vm" {
     size         = var.vm_disk_size
   }
 
+  cdrom {
+    file_id   = proxmox_virtual_environment_file.cloud-config-file.id
+    interface = "ide2"
+  }
+
   serial_device {
     device = "socket"
   } 
