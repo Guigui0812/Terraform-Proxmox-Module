@@ -46,10 +46,6 @@ resource "proxmox_virtual_environment_vm" "vm" {
     size         = var.vm_disk_size
   }
 
-  serial_device {
-    device = "socket"
-  } 
-
   network_device {
     bridge = "vmbr0"
   }
