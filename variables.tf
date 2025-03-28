@@ -22,8 +22,6 @@ variable "vm_memory" {
   description = "Amount of memory for the VM"
 }
 
-
-
 variable "vm_ip_address" {
   type        = string
   description = "IP address for the VM"
