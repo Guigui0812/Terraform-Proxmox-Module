@@ -38,7 +38,7 @@ variable "vm_iso_file" {
 }
 
 variable "vm_disk_size" {
-  type        = string
+  type        = number
   description = "Disk size for the VM"
 }
 

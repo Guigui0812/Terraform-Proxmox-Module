@@ -41,13 +41,17 @@ resource "proxmox_virtual_environment_vm" "vm" {
     datastore_id = "local-lvm"
     file_id      = "local:iso/${var.vm_iso_file}"
     interface    = "virtio0"
-    iothread     = "true"
+    iothread     = true
     discard      = "on"
     size         = var.vm_disk_size
   }
 
   network_device {
     bridge = "vmbr0"
+  }
+  
+  serial_device {
+    device = "socket"
   }
 
   depends_on = [proxmox_virtual_environment_file.cloud-config-file]
