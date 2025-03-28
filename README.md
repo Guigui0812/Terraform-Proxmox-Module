@@ -6,16 +6,36 @@ This Terraform module provides a way to provision a VM on a Proxmox server using
 
 - [Terraform](https://www.terraform.io/downloads.html)
 - [Proxmox](https://www.proxmox.com/en/downloads) server with **snippets** enabled (**Datacenter** > **Storage** > **Edit** > **Content** > **Snippets**)
-- [Proxmox provider](https://registry.terraform.io/providers/bpg/proxmox/latest/docs)
+- [bpg/proxmox provider - 0.72.0](https://registry.terraform.io/providers/bpg/proxmox/latest/docs)
 - A Cloud Image ISO file to deploy the VM with an OS of your choice, like [Ubuntu](https://cloud-images.ubuntu.com/)
+
+To use `bpg/proxmox` provider, you need to declare it in your `main.tf` file. The provider block should look like this:
+
+```hcl
+terraform {
+  required_providers {
+    proxmox = {
+      source  = "bpg/proxmox"
+      version = "0.72.0"
+    }
+  }
+}
+
+provider "proxmox" {
+  pm_api_url      = "https://<PROXMOX_IP>:8006"
+  pm_user         = "<PROXMOX_USERNAME>"
+  pm_password     = "<PROXMOX_PASSWORD>"
+  pm_tls_insecure = true
+}
+```
+
+Then, use `terraform init` to initialize the provider.
 
 ## Variables
 
 | Name | Description | Type |
 |------|-------------|------|
-| `proxmox_endpoint` | Proxmox API endpoint | `string` |
-| `proxmox_username` | Proxmox username | `string` |
-| `proxmox_password` | Proxmox password | `string` |
+| `proxmox_node_name` | Proxmox node name | `string` |
 | `vm_name` | VM name | `string` |
 | `vm_nb_cpu_cores` | Number of CPU cores for the VM | `string` |
 | `vm_memory` | Amount of memory for the VM | `string` |
