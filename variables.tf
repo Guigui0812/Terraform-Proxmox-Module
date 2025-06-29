@@ -12,6 +12,12 @@ variable "vm_name" {
   description = "Name for the VM"
 }
 
+variable "vm_nb_cpu_sockets {
+  type = number
+  description= "Identifier of the CPU socket used by the VM"
+  default = 1
+}
+
 variable "vm_nb_cpu_cores" {
   type        = number
   description = "Number of CPU cores for the VM"

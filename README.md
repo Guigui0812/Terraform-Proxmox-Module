@@ -56,21 +56,17 @@ To create a VM on a Proxmox server through this module, create a directory for t
 ```hcl
 module "proxmox" {
   source = "git::https://github.com/Guigui0812/Terraform-Proxmox-Module.git"
-
-  proxmox_endpoint = "https://<PROXMOX_IP>:8006"
-  proxmox_username = "<PROXMOX_USERNAME>"
-  proxmox_password = "<PROXMOX_PASSWORD>"
-
-  vm_name         = "test-vm"
-  vm_nb_cpu_cores = "2" # Number of CPU cores
-  vm_memory       = "2048" # Amount of memory in MB
-  vm_username     = "username" 
-  vm_password     = "password" 
-  vm_ip_address   = "<VM_IP>/<CIDR>"
-  vm_gateway      = "<GATEWAY_IP>"
-  vm_iso_file     = "ubuntu-24-04-server.img" # name of the ISO file
-  vm_disk_size    = "20" # Disk size in GB
-  vm_cloud_config = <<EOF
+  proxmox_node_name = "<PROXMOX_NODE_NAME>"
+  vm_name           = "test-vm"
+  vm_nb_cpu_cores   = "2" # Number of CPU cores
+  vm_memory         = "2048" # Amount of memory in MB
+  vm_username       = "username" 
+  vm_password       = "password" 
+  vm_ip_address     = "<VM_IP>/<CIDR>"
+  vm_gateway        = "<GATEWAY_IP>"
+  vm_iso_file       = "ubuntu-24-04-server.img" # name of the ISO file
+  vm_disk_size      = "20" # Disk size in GB
+  vm_cloud_config   = <<EOF
 
 # cloud-config
 
