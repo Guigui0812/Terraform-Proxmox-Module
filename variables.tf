@@ -51,7 +51,7 @@ variable "vm_disk_size" {
 variable "vm_datastore_id" {
   type        = string
   description = "Datastore to use for VM disks"
-  default     = "virtio0"
+  default     = "local-lvm"
 }
 
 variable "vm_cloud_config" {
