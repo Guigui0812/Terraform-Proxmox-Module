@@ -12,7 +12,7 @@ variable "vm_name" {
   description = "Name for the VM"
 }
 
-variable "vm_nb_cpu_sockets " {
+variable "vm_nb_cpu_sockets" {
   type = number
   description= "Identifier of the CPU socket used by the VM"
   default = 1
