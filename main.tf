@@ -4,7 +4,7 @@ resource "proxmox_virtual_environment_file" "cloud-config-file" {
   node_name    = var.proxmox_node_name
 
   source_raw {
-    data = var.vm_cloud_config
+    data      = var.vm_cloud_config
     file_name = "${var.vm_name}-cloud-config.yaml"
   }
 }
@@ -19,7 +19,7 @@ resource "proxmox_virtual_environment_vm" "vm" {
 
   cpu {
     sockets = var.vm_nb_cpu_sockets
-    cores = var.vm_nb_cpu_cores
+    cores   = var.vm_nb_cpu_cores
   }
 
   memory {
@@ -39,7 +39,7 @@ resource "proxmox_virtual_environment_vm" "vm" {
   }
 
   disk {
-    datastore_id = "local-lvm"
+    datastore_id = var.vm_datastore_id
     file_id      = "local:iso/${var.vm_iso_file}"
     interface    = "virtio0"
     iothread     = true
@@ -50,7 +50,7 @@ resource "proxmox_virtual_environment_vm" "vm" {
   network_device {
     bridge = "vmbr0"
   }
-  
+
   serial_device {
     device = "socket"
   }

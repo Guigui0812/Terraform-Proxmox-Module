@@ -13,9 +13,9 @@ variable "vm_name" {
 }
 
 variable "vm_nb_cpu_sockets" {
-  type = number
-  description= "Identifier of the CPU socket used by the VM"
-  default = 1
+  type        = number
+  description = "Identifier of the CPU socket used by the VM"
+  default     = 1
 }
 
 variable "vm_nb_cpu_cores" {
@@ -46,6 +46,12 @@ variable "vm_iso_file" {
 variable "vm_disk_size" {
   type        = number
   description = "Disk size for the VM"
+}
+
+variable "vm_datastore_id" {
+  type        = string
+  description = "Datastore to use for VM disks"
+  default     = "virtio0"
 }
 
 variable "vm_cloud_config" {
