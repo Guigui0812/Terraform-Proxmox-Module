@@ -59,8 +59,8 @@ variable "vm_cloud_config" {
   description = "Cloud-init configuration for the VM"
 }
 
-variable "ignore_network_changes" {
+variable "vm_lock" {
   type        = bool
-  description = "Whether to ignore network changes"
+  description = "Whether the VM should be locked"
   default     = false
 }

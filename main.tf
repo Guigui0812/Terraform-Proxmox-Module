@@ -56,10 +56,7 @@ resource "proxmox_virtual_environment_vm" "vm" {
   }
 
   lifecycle {
-    ignore_changes = [
-      var.ignore_network_changes ? network_device : null,
-      initialization
-    ]
+    ignore_changes = var.vm_lock ? [all] : []
   }
 
   depends_on = [proxmox_virtual_environment_file.cloud-config-file]
