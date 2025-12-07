@@ -55,5 +55,9 @@ resource "proxmox_virtual_environment_vm" "vm" {
     device = "socket"
   }
 
+  lifecycle {
+    ignore_changes = [network_device, initialization]
+  }
+
   depends_on = [proxmox_virtual_environment_file.cloud-config-file]
 }

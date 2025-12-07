@@ -46,6 +46,7 @@ Then, use `terraform init` to initialize the provider.
 | `vm_iso_file` | ISO file for the VM | `string` |
 | `vm_disk_size` | VM disk size | `number` |
 | `vm_cloud_config` | Cloud-init configuration for the VM | `string` |
+| `changes_to_ignore` | List of VM attributes to ignore changes for | `list(string)` |
 
 ## Usage
 
