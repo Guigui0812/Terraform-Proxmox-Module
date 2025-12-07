@@ -58,3 +58,9 @@ variable "vm_cloud_config" {
   type        = string
   description = "Cloud-init configuration for the VM"
 }
+
+variable "ignore_changes" {
+  type        = bool
+  description = "Ignore changes to certain VM attributes"
+  default = false
+}

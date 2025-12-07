@@ -55,5 +55,12 @@ resource "proxmox_virtual_environment_vm" "vm" {
     device = "socket"
   }
 
+  dynamic "lifecycle" {
+    for_each = var.ignore_changes ? [1] : []
+    content {
+      ignore_changes = all
+    }
+  }
+
   depends_on = [proxmox_virtual_environment_file.cloud-config-file]
 }
