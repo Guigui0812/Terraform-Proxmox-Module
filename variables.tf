@@ -59,8 +59,8 @@ variable "vm_cloud_config" {
   description = "Cloud-init configuration for the VM"
 }
 
-variable "ignore_changes" {
-  type        = bool
-  description = "Ignore changes to certain VM attributes"
-  default = false
+variable "changes_to_ignore" {
+  type        = list(string)
+  description = "List of VM attributes to ignore changes for"
+  default     = []
 }
