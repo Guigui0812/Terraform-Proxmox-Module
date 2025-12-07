@@ -58,9 +58,3 @@ variable "vm_cloud_config" {
   type        = string
   description = "Cloud-init configuration for the VM"
 }
-
-variable "vm_lock" {
-  type        = bool
-  description = "Whether the VM should be locked"
-  default     = false
-}
