@@ -60,7 +60,7 @@ variable "vm_cloud_config" {
 }
 
 variable "changes_to_ignore" {
-  type        = list(string)
+  type        = list
   description = "List of VM attributes to ignore changes for"
   default     = []
 }
