@@ -58,3 +58,14 @@ variable "vm_cloud_config" {
   type        = string
   description = "Cloud-init configuration for the VM"
 }
+
+variable "vm_cpu_type" {
+  type        = string
+  description = "VM CPU type"
+}
+
+variable "vm_started" {
+  type        = bool
+  description = "Should VM being started"
+  default     = true
+}
