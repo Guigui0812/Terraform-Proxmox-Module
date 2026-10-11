@@ -12,12 +12,14 @@ resource "proxmox_virtual_environment_file" "cloud-config-file" {
 resource "proxmox_virtual_environment_vm" "vm" {
   name      = var.vm_name
   node_name = var.proxmox_node_name
+  started   = var.vm_started
 
   agent {
     enabled = true
   }
 
   cpu {
+    type    = var.vm_cpu_type
     sockets = var.vm_nb_cpu_sockets
     cores   = var.vm_nb_cpu_cores
   }
